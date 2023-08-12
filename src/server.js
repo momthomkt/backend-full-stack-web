@@ -11,10 +11,12 @@ let app = express();
 
 // Add headers before the routes are defined
 app.use(function (req, res, next) {
-    let port_fe = process.env.PORT_FE || 3000;
+    // let port_fe = process.env.PORT_FE || 3000;
+    let urlFE = process.env.URL_FE;
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', `http://localhost:${port_fe}`);
+    // res.setHeader('Access-Control-Allow-Origin', `http://localhost:${port_fe}`);
+    res.setHeader('Access-Control-Allow-Origin', `${urlFE}`);
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
